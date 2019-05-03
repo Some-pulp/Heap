@@ -15,15 +15,9 @@ using namespace std;
 
 int const DEFAULT = 16;
 
-Heap::Heap(){
-    arr = new int[DEFAULT];
-    root = nullptr;
-}
+Heap::Heap(){arr = new int[DEFAULT];}
 
-Heap::Heap(int size){
-    arr = new int[size];
-    root = nullptr;
-}
+Heap::Heap(int size){arr = new int[size];}
 
 void Heap::resize(){
     int* tmp = new int[size * 2];
@@ -36,24 +30,36 @@ void Heap::resize(){
 }
 
 void Heap::insert(int v){
-    if(counter > size)
+    if(counter+1 > size)
         resize();
     
-    bubbleUp(v);
+    arr[counter++] = v;
+    bubbleUp(v-1);
 }
 
 int Heap::remove(){
-    if(counter <= 0)
+    if(counter - 1 < 0)
         throw std::length_error("the heap is empty");
     return trickleDown();
 }
 
-void Heap::bubbleUp(int i){
-    
-    
-}
+int left(int i){return 2*i+1;}
 
-int Heap::trickleDown(){
+int right(int i){return 2*i+2;}
+
+int parent(int i){return i-1/2;}
+
+
+
+//void Heap::bubbleUp(int i){
     
     
-}
+//}
+
+//int Heap::trickleDown(){
+    
+    
+//}
+
+
+
