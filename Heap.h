@@ -17,7 +17,6 @@ using namespace std;
 
 class Heap{
 private:
-    node* root;
     int* arr;
     int counter = 0;
     int size;
@@ -33,6 +32,9 @@ public:
     void resize();
     void bubbleUp(int i);
     int trickleDown();
+    int left(int i);
+    int right(int i);
+    int parent(int i);
 };
 
 #endif /* Heap_h */
